@@ -335,22 +335,22 @@ void ofApp::draw()
 		}
 	}
 
-		if (onHand)
+		if (onHand && inventoryIterator == ++inventory.begin())
 		{
 			item1x = posx;
 			item1y = posy;
 		}
-		if (onHand2)
+		if (onHand2 && inventoryIterator == ++++inventory.begin())
 		{
 			item2x = posx;
 			item2y = posy;
 		}
-		if (onHand3)
+		if (onHand3 && inventoryIterator == ----inventory.end())
 		{
 			item3x = posx;
 			item3y = posy;
 		}
-		if (onHand4)
+		if (onHand4 && inventoryIterator == --inventory.end())
 		{
 			item4x = posx;
 			item4y = posy;
