@@ -221,91 +221,141 @@ void ofApp::draw()
 		uiFont.drawString( (*inventoryIterator).name.c_str(), posx, posy);
 
 		//Colisiones
-		if (posx + limit > item1x && posx + limit < item1x && posy + limit > item1y && posy - limit < item1y + limit) {
-			inventory.push_back(spada);
-			item1x = 10000;
-			item1y = 10000;
-		}
-		if (posx - limit < item1x + limit && posx - limit > item1x + limit && posy + limit > item1y && posy - limit < item1y + limit) {
-			inventory.push_back(spada);
-			item1x = 10000;
-			item1y = 10000;
-		}
-		if (posy + limit > item1y && posy + limit < item1y + limit && posx + limit > item1x && posx - limit < item1x++ + limit) {
-			inventory.push_back(spada);
-			item1x = 10000;
-			item1y = 10000;
-		}
-		if (posy - limit < item1y + limit && posy - limit > item1y + limit && posx + limit > item1x && posx - limit < item1x + limit) {
-			inventory.push_back(spada);
-			item1x = 10000;
-			item1y = 10000;
-		}
-
-		if (posx + limit > item2x && posx + limit < item2x && posy + limit > item2y && posy - limit < item2y + limit) {
-			inventory.push_back(veneno1);
-			item2x = 10000;
-			item2y = 10000;
-		}
-		if (posx - limit < item2x + limit && posx - limit > item2x + limit && posy + limit > item2y && posy - limit < item2y + limit) {
-			inventory.push_back(veneno1);
-			item2x = 10000;
-			item2y = 10000;
-		}
-		if (posy + limit > item2y && posy + limit < item2y + limit && posx + limit > item2x && posx - limit < item2x++ + limit) {
-			inventory.push_back(veneno1);
-			item2x = 10000;
-			item2y = 10000;
-		}
-		if (posy - limit < item2y + limit && posy - limit > item2y + limit && posx + limit > item2x && posx - limit < item2x + limit) {
-			inventory.push_back(veneno1);
-			item2x = 10000;
-			item2y = 10000;
+		if (!onHand)
+		{
+			if (posx + limit > item1x && posx + limit < item1x && posy + limit > item1y && posy - limit < item1y + limit) {
+				onHand = true;
+				inventory.push_back(spada);
+				item1x = 10000;
+				item1y = 10000;
+			}
+			if (posx - limit < item1x + limit && posx - limit > item1x + limit && posy + limit > item1y && posy - limit < item1y + limit) {
+				onHand = true;
+				inventory.push_back(spada);
+				item1x = 10000;
+				item1y = 10000;
+			}
+			if (posy + limit > item1y && posy + limit < item1y + limit && posx + limit > item1x && posx - limit < item1x++ + limit) {
+				onHand = true;
+				inventory.push_back(spada);
+				item1x = 10000;
+				item1y = 10000;
+			}
+			if (posy - limit < item1y + limit && posy - limit > item1y + limit && posx + limit > item1x && posx - limit < item1x + limit) {
+				onHand = true;
+				inventory.push_back(spada);
+				item1x = 10000;
+				item1y = 10000;
+			}
 		}
 
-		if (posx + limit > item3x && posx + limit < item3x && posy + limit > item3y && posy - limit < item3y + limit) {
-			inventory.push_back(bomba1);
-			item3x = 10000;
-			item3y = 10000;
-		}
-		if (posx - limit < item3x + limit && posx - limit > item3x + limit && posy + limit > item3y && posy - limit < item3y + limit) {
-			inventory.push_back(bomba1);
-			item3x = 10000;
-			item3y = 10000;
-		}
-		if (posy + limit > item3y && posy + limit < item3y + limit && posx + limit > item3x && posx - limit < item3x++ + limit) {
-			inventory.push_back(bomba1);
-			item3x = 10000;
-			item3y = 10000;
-		}
-		if (posy - limit < item3y + limit && posy - limit > item3y + limit && posx + limit > item3x && posx - limit < item3x + limit) {
-			inventory.push_back(bomba1);
-			item3x = 10000;
-			item3y = 10000;
-		}
-
-		if (posx + limit > item4x && posx + limit < item4x && posy + limit > item4y && posy - limit < item4y + limit) {
-			inventory.push_back(pistola1);
-			item4x = 10000;
-			item4y = 10000;
-		}
-		if (posx - limit < item4x + limit && posx - limit > item4x + limit && posy + limit > item4y && posy - limit < item4y + limit) {
-			inventory.push_back(pistola1);
-			item4x = 10000;
-			item4y = 10000;
-		}
-		if (posy + limit > item4y && posy + limit < item4y + limit && posx + limit > item4x && posx - limit < item4x++ + limit) {
-			inventory.push_back(pistola1);
-			item4x = 10000;
-			item4y = 10000;
-		}
-		if (posy - limit < item4y + limit && posy - limit > item4y + limit && posx + limit > item4x && posx - limit < item4x + limit) {
-			inventory.push_back(pistola1);
-			item4x = 10000;
-			item4y = 10000;
+		if (!onHand2)
+		{
+			if (posx + limit > item2x && posx + limit < item2x && posy + limit > item2y && posy - limit < item2y + limit) {
+				onHand2 = true;
+				inventory.push_back(veneno1);
+				item2x = 10000;
+				item2y = 10000;
+			}
+			if (posx - limit < item2x + limit && posx - limit > item2x + limit && posy + limit > item2y && posy - limit < item2y + limit) {
+				onHand2 = true;
+				inventory.push_back(veneno1);
+				item2x = 10000;
+				item2y = 10000;
+			}
+			if (posy + limit > item2y && posy + limit < item2y + limit && posx + limit > item2x && posx - limit < item2x++ + limit) {
+				onHand2 = true;
+				inventory.push_back(veneno1);
+				item2x = 10000;
+				item2y = 10000;
+			}
+			if (posy - limit < item2y + limit && posy - limit > item2y + limit && posx + limit > item2x && posx - limit < item2x + limit) {
+				onHand2 = true;
+				inventory.push_back(veneno1);
+				item2x = 10000;
+				item2y = 10000;
+			}
 		}
 
+		if (!onHand3)
+		{
+			if (posx + limit > item3x && posx + limit < item3x && posy + limit > item3y && posy - limit < item3y + limit) {
+				onHand3 = true;
+				inventory.push_back(bomba1);
+				item3x = 10000;
+				item3y = 10000;
+			}
+			if (posx - limit < item3x + limit && posx - limit > item3x + limit && posy + limit > item3y && posy - limit < item3y + limit) {
+				onHand3 = true;
+				inventory.push_back(bomba1);
+				item3x = 10000;
+				item3y = 10000;
+			}
+			if (posy + limit > item3y && posy + limit < item3y + limit && posx + limit > item3x && posx - limit < item3x++ + limit) {
+				onHand3 = true;
+				inventory.push_back(bomba1);
+				item3x = 10000;
+				item3y = 10000;
+			}
+			if (posy - limit < item3y + limit && posy - limit > item3y + limit && posx + limit > item3x && posx - limit < item3x + limit) {
+				onHand3 = true;
+				inventory.push_back(bomba1);
+				item3x = 10000;
+				item3y = 10000;
+			}
+		}
+
+		if (!onHand4)
+		{
+
+			if (posx + limit > item4x && posx + limit < item4x && posy + limit > item4y && posy - limit < item4y + limit) {
+				onHand4 = true;
+				inventory.push_back(pistola1);
+				item4x = 10000;
+				item4y = 10000;
+			}
+			if (posx - limit < item4x + limit && posx - limit > item4x + limit && posy + limit > item4y && posy - limit < item4y + limit) {
+				onHand4 = true;
+				inventory.push_back(pistola1);
+				item4x = 10000;
+				item4y = 10000;
+			}
+			if (posy + limit > item4y && posy + limit < item4y + limit && posx + limit > item4x && posx - limit < item4x++ + limit) {
+				onHand4 = true;
+				inventory.push_back(pistola1);
+				item4x = 10000;
+				item4y = 10000;
+			}
+			if (posy - limit < item4y + limit && posy - limit > item4y + limit && posx + limit > item4x && posx - limit < item4x + limit) {
+				onHand4 = true;
+				inventory.push_back(pistola1);
+				item4x = 10000;
+				item4y = 10000;
+			}
+		}
 	}
+
+		if (onHand)
+		{
+			item1x = posx;
+			item1y = posy;
+		}
+		if (onHand2)
+		{
+			item2x = posx;
+			item2y = posy;
+		}
+		if (onHand3)
+		{
+			item3x = posx;
+			item3y = posy;
+		}
+		if (onHand4)
+		{
+			item4x = posx;
+			item4y = posy;
+		}
+
 }
 
 void ofApp::PrevItem()

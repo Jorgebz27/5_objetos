@@ -72,6 +72,10 @@ class ofApp : public ofBaseApp{
 		float item2x, item2y;
 		float item3x, item3y;
 		float item4x, item4y;
+		bool onHand = false;
+		bool onHand2 = false;
+		bool onHand3 = false;
+		bool onHand4 = false;
 
 		ofVec2f playerSize;
 		ofVec2f playerSpriteOffset;
